@@ -2,15 +2,15 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req, res){
-    res.send("Seja bem-vindo ao meu app!");
+    res.sendFile(__dirname + "/html/index.html");
 });
 
 app.get("/sobre", function(req, res){ //req - requisição | res - mandar mensagem ao cliente
-    res.send("Minha page about");
+    res.sendFile(__dirname + "/html/sobre.html");
 });
 
 app.get("/blog", function(req, res){
-    res.send("Seja bem-vindo ao meu blog!");
+    res.sendFile(__dirname + "/html/blog.html");
 });
 
 app.get('/ola/:nome/:cargo/:nacionalidade', function(req, res){
