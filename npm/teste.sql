@@ -1,1 +1,1 @@
-﻿DELETE FROM usuarios WHERE nome = "Pablo Muzzy";
+﻿UPDATE usuarios SET nome = "Zafina" WHERE nome = "Pâmela";
