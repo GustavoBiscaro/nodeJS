@@ -1,1 +1,0 @@
-﻿UPDATE usuarios SET nome = "Zafina" WHERE nome = "Pâmela";

@@ -1,21 +1,23 @@
 const express = require("express");
 const app = express();
+const handlebars = require('express-handlebars');
+const Sequelize = require('sequelize')
 
-app.get("/", function(req, res){
-    res.sendFile(__dirname + "/html/index.html");
-});
+// Config
+    // Template Engine
+    app.engine("handlebars", handlebars.engine({defaultLayout: "main"}))
+    app.set('view engine', 'handlebars')
 
-app.get("/sobre", function(req, res){ //req - requisição | res - mandar mensagem ao cliente
-    res.sendFile(__dirname + "/html/sobre.html");
-});
-
-app.get("/blog", function(req, res){
-    res.sendFile(__dirname + "/html/blog.html");
-});
-
-app.get('/ola/:nome/:cargo/:nacionalidade', function(req, res){
-    res.send("<h1>Ola " + req.params.nome + "</h1>" + "<h2>Seu cargo: " + req.params.cargo + "</h2>" + "<h3> Sua nacionalidade: " +req.params.nacionalidade + "</h3>");
-});
+    // Conexão com o banco de dados MySQL
+    const sequelize = new Sequelize('test','root','mzLA18@#*', {
+        host: "localhost",
+        dialect: 'mysql'
+    })
+    // Rotas
+    app.get('/cad', function(req, res){
+       res.render('formulario')
+    })
+    
 
 
 app.listen(8081, function(){
