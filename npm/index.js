@@ -18,6 +18,9 @@ const Sequelize = require('sequelize')
        res.render('formulario')
     })
     
+    app.post('/add', function(req, res){
+        res.send("FORMULARIO RECEBIDO!")
+    })
 
 
 app.listen(8081, function(){
